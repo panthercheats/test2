@@ -238,79 +238,39 @@
             <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i></a></li>
         </ul>
     </div>
-    <div class="content">
-        <main>
-            <!-- Welcome Section -->
-            <section id="welcome" class="welcome-section">
-                <h2>Welcome to PantherHub</h2>
-                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
-            </section>
-
-            <!-- Execution Section -->
-            <section id="execution">
-                <h2>Execution Page</h2>
-                <div class="input-container">
-                    <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
-                    <div>
-                        <button class="execute" onclick="executeCode()">Execute</button>
-                        <button class="clear" onclick="clearCode()">Clear</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Script Hub Section -->
-            <section id="scripthub">
-                <h2>Script Hub Page</h2>
-                <p>Content for Script Hub page goes here.</p>
-            </section>
-
-            <!-- About Section -->
-            <section id="about">
-                <h2>About Us</h2>
-                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
-            </section>
-        </main>
-        <div class="dialog-overlay" id="dialogOverlay">
-            <div class="dialog-box">
-                <p>The Executor is Currently In Development So Execute Will Not Work.</p>
-                <button onclick="closeDialog()">Ok!</button>
+    <main>
+        <section id="welcome" class="welcome-section">
+            <h2>Welcome to PantherHub</h2>
+            <p>Your one-stop destination for scripting and execution.</p>
+            <div class="input-container">
+                <textarea placeholder="Write your script here..."></textarea>
+                <button class="execute">Execute</button>
+                <button class="clear">Clear</button>
             </div>
+        </section>
+        <section id="execution" class="content">
+            <h2>Script Execution</h2>
+            <div class="output-container">
+                <!-- Output will be displayed here -->
+            </div>
+        </section>
+        <section id="scripthub" class="content">
+            <h2>Script Hub</h2>
+            <p>Find and share scripts with others.</p>
+        </section>
+        <section id="about" class="content">
+            <h2>About PantherHub</h2>
+            <p>PantherHub is a platform designed to streamline the process of scripting and executing code snippets.</p>
+        </section>
+    </main>
+    <div class="dialog-overlay">
+        <div class="dialog-box">
+            <p>Dialog content goes here...</p>
+            <button>Close</button>
         </div>
     </div>
-
     <script>
-        function executeCode() {
-            document.getElementById('dialogOverlay').style.display = 'flex';
-        }
-
-        function clearCode() {
-            document.getElementById('codeInput').value = '';
-        }
-
-        function closeDialog() {
-            document.getElementById('dialogOverlay').style.display = 'none';
-        }
-
-        function onScroll() {
-            const sections = document.querySelectorAll('section');
-            const scrollPos = window.scrollY || document.documentElement.scrollTop;
-
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop - 60; // Adjust for fixed sidebar height
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                const navLink = document.querySelector(`.sidebar ul li a[href="#${sectionId}"]`);
-
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navLink.classList.add('active');
-                } else {
-                    navLink.classList.remove('active');
-                }
-            });
-        }
-
-        document.addEventListener('scroll', onScroll);
-        document.addEventListener('DOMContentLoaded', onScroll);
+        // JavaScript code goes here
     </script>
 </body>
 </html>
