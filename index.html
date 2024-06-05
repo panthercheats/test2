@@ -42,7 +42,6 @@
         .sidebar .logo span {
             margin-top: 0.5rem;
             font-size: 0.8rem;
-            color: #fff;
         }
 
         .sidebar ul {
@@ -84,11 +83,6 @@
             font-size: 1.2rem;
         }
 
-        .window-controls {
-            display: flex;
-            align-items: center;
-        }
-
         .window-controls button {
             background: none;
             border: none;
@@ -117,7 +111,6 @@
         h2 {
             margin-top: 0;
             font-size: 1.75rem;
-            color: #fff;
         }
 
         p {
@@ -130,7 +123,6 @@
             padding: 2rem;
             border-radius: 8px;
             text-align: center;
-            color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -200,10 +192,9 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
-            display: none;
             animation: fadeIn 0.5s;
         }
 
@@ -247,4 +238,62 @@
         <ul>
             <li><a href="#execution"><i class="fas fa-home"></i></a></li>
             <li><a href="#scripthub"><i class="fas fa-scroll"></i></a></li>
-            <li><a href="#about"><i class="fas fa-info-circle"></i></
+            <li><a href="#about"><i class="fas fa-info-circle"></i></a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <div class="header-content">
+                <div class="title">PantherHub</div>
+                <div class="window-controls">
+                    <button class="minimize">&minus;</button>
+                    <button class="close">&times;</button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="welcome" class="welcome-section">
+                <h2>Welcome to PantherHub</h2>
+                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
+            </section>
+            <section id="execution">
+                <h2>Execution Page</h2>
+                <div class="input-container">
+                    <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+                    <div>
+                        <button class="execute" onclick="executeCode()">Execute</button>
+                        <button class="clear" onclick="clearCode()">Clear</button>
+                    </div>
+                </div>
+            </section>
+            <section id="scripthub">
+                <h2>Script Hub Page</h2>
+                <p>Content for Script Hub page goes here.</p>
+            </section>
+            <section id="about">
+                <h2>About Us</h2>
+                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
+            </section>
+        </main>
+        <div class="dialog-overlay" id="dialogOverlay">
+            <div class="dialog-box">
+                <p>The Executor is Currently In Development So Execute Will Not Work.</p>
+                <button onclick="closeDialog()">Ok!</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function executeCode() {
+            document.getElementById('dialogOverlay').style.display = 'flex';
+        }
+
+        function clearCode() {
+            document.getElementById('codeInput').value = '';
+        }
+
+        function closeDialog() {
+            document.getElementById('dialogOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
