@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>PantherHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -18,7 +18,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 60px;
+            width: 50px;
             height: 100%;
             background-color: #23272a;
             display: flex;
@@ -41,7 +41,7 @@
 
         .sidebar .logo span {
             margin-top: 0.25rem;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: #fff;
         }
 
@@ -51,13 +51,13 @@
         }
 
         .sidebar ul li {
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
 
         .sidebar ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .sidebar ul li a:hover {
@@ -65,33 +65,48 @@
         }
 
         .content {
-            margin-left: 60px;
-            padding: 1rem;
+            margin-left: 50px;
+            padding: 0.5rem;
             background-color: #2c2f33;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        main {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            scroll-snap-type: y mandatory;
         }
 
         section {
-            margin-bottom: 2rem;
+            width: 90%;
+            max-width: 600px;
+            margin-bottom: 1rem;
             background-color: #36393f;
-            padding: 1.5rem;
+            padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: start;
         }
 
         h2 {
             margin-top: 0;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             color: #fff;
         }
 
         p {
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .welcome-section {
             background: linear-gradient(135deg, #7289da, #99aab5);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
             color: #fff;
@@ -99,12 +114,12 @@
         }
 
         .welcome-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
         }
 
         .welcome-section p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 0;
         }
 
@@ -112,16 +127,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .input-container textarea {
             width: 100%;
-            max-width: 600px;
-            height: 150px;
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            font-size: 1rem;
+            max-width: 400px;
+            height: 100px;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            font-size: 0.9rem;
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: none;
@@ -129,9 +144,9 @@
         }
 
         .input-container button {
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
+            margin-top: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -150,7 +165,7 @@
         .input-container .clear {
             background-color: #dc3545;
             color: #fff;
-            margin-left: 1rem;
+            margin-left: 0.5rem;
         }
 
         .input-container .clear:hover {
@@ -173,7 +188,7 @@
 
         .dialog-box {
             background: #fff;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -182,7 +197,7 @@
         .dialog-box button {
             background-color: #007bff;
             color: #fff;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.75rem;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -200,32 +215,6 @@
                 opacity: 1;
             }
         }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                flex-direction: row;
-                justify-content: space-around;
-                padding: 0.5rem 0;
-                position: static;
-            }
-
-            .sidebar ul {
-                display: flex;
-                justify-content: space-around;
-                width: 100%;
-            }
-
-            .sidebar ul li {
-                margin: 0;
-            }
-
-            .content {
-                margin-left: 0;
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -241,29 +230,36 @@
         </ul>
     </div>
     <div class="content">
-        <section id="welcome" class="welcome-section">
-            <h2>Welcome to PantherHub</h2>
-            <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
-        </section>
-        <section id="execution">
-            <h2>Execution Page</h2>
-            <div class="input-container">
-                <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
-                <div>
-                    <button class="execute" onclick="executeCode()">Execute</button>
-                    <button class="clear" onclick="clearCode()">Clear</button>
+        <main>
+            <!-- Welcome Section -->
+            <section id="welcome" class="welcome-section">
+                <h2>Welcome to PantherHub</h2>
+                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
+            </section>
+
+            <!-- Execution Section -->
+            <section id="execution">
+                <h2>Execution Page</h2>
+                <div class="input-container">
+                    <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+                    <div>
+                        <button class="execute" onclick="executeCode()">Execute</button>
+                        <button class="clear" onclick="clearCode()">Clear</button>
+                    </div>
                 </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Us</h2>
+                <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
+            </section>
+        </main>
+        <div class="dialog-overlay" id="dialogOverlay">
+            <div class="dialog-box">
+                <p>The Executor is Currently In Development So Execute Will Not Work.</p>
+                <button onclick="closeDialog()">Ok!</button>
             </div>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>PantherHub is a Roblox executor that brings you fun and better features!</p>
-        </section>
-    </div>
-    <div class="dialog-overlay" id="dialogOverlay">
-        <div class="dialog-box">
-            <p>The Executor is Currently In Development So Execute Will Not Work.</p>
-            <button onclick="closeDialog()">Ok!</button>
         </div>
     </div>
 
@@ -279,15 +275,6 @@
         function closeDialog() {
             document.getElementById('dialogOverlay').style.display = 'none';
         }
-
-        document.querySelectorAll('.sidebar ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
