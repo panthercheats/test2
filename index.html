@@ -89,17 +89,23 @@
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 2rem); /* Full viewport height minus padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         h2 {
             margin-top: 0;
             font-size: 1.5rem; /* Reduced font size */
             color: #fff;
+            text-align: center;
         }
 
         p {
             font-size: 1rem;
             line-height: 1.5;
+            text-align: center;
         }
 
         .welcome-section {
@@ -109,6 +115,10 @@
             text-align: center;
             color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 2rem); /* Full viewport height minus padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .welcome-section h2 {
@@ -281,12 +291,11 @@
             document.getElementById('dialogOverlay').style.display = 'none';
         }
 
-        // Function to add 'active' class to the sidebar links
         function onScroll() {
             const sections = document.querySelectorAll('section');
-            const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollPos = window.scrollY || document.documentElement.scrollTop;
 
-            sections.forEach(section => {
+            sections.forEach((section) => {
                 const sectionTop = section.offsetTop - 60; // Adjust for fixed sidebar height
                 const sectionHeight = section.offsetHeight;
                 const sectionId = section.getAttribute('id');
